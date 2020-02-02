@@ -1,0 +1,22 @@
+﻿{% extends "base.html" %}
+ 
+{% block content %}
+	<h3>{{name}} {{surname}}</h3>
+	<img src="{{path}}" width="200" height="200">
+	</br>
+	<i>{{status}}</i>
+	</br>
+	</br>
+	<a href="/add_news">Добавить новость</a>
+{% for item in news %}
+    <div class="alert alert-dark" role="alert">
+        <a href="/news/{{item[0]}}"><h2>{{item[1]}}</h2></a>
+        <div>{{item[2]}}</div>
+	<a>Дата: {{item[3]}}</a>
+	</br>
+	{% if my_page %}
+        <a href="/delete_news/{{item[0]}}">Удалить новость</a>
+    	{% endif %}
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+﻿{% extends "base.html" %}
+ 
+{% block content %}
+    <a href="/add_news">Добавить новость</a>
+{% for item in news %}
+    <div class="alert alert-dark" role="alert">
+        <i><a href="/news/{{item[0]}}"><h2>{{item[1]}}</h2></a></i>
+        <div><i><font size="5">{{item[2]}}</font></i></div>
+	<a>Дата: {{item[3]}}</a>
+	</br>
+	<a>Автор: </a><a href="/{{item[4]}}">{{users[item[4]][0]}}</a>
+	</br>
+	{% if username == users[item[4]][1] %}
+        <a href="/delete_news/{{item[0]}}">Удалить новость</a>
+    	{% endif %}
+    </div>
+{% endfor %}
+{% endblock %}

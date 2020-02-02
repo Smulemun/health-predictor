@@ -1,0 +1,32 @@
+﻿{% extends "base.html" %}
+ 
+{% block content %}
+    <div class="alert alert-light" role="alert">  
+	<b><h1>{{news[1]}}</h1></b>   
+    	<div><font size="6"><i>{{news[2]}}</i></font></div>
+	<font size="4"><a>Автор: </a><a href="/{{news[4]}}">{{author}}</a></font>
+    </div>
+	<form action="" method="post" novalidate>
+	{{ form.hidden_tag() }}
+	<p>
+            {{ form.content.label }}<br>
+            {{ form.content }}<br>
+            {% for error in form.content.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+	<p>{{ form.submit() }}</p>
+	</form>
+	<font size="4">Все комментарии</font>
+{% for item in cm %}
+    <div class="alert alert-dark" role="alert">
+        <a href="/{{item[1]}}"><h5>{{item[4]}}</h5></a>
+        <div><font size="4">{{item[3]}}</font></div>
+	{% if item[1] == cur_user_id %}
+        <font size="3"><a href="/delete_comment/{{item[0]}}">Удалить комментарий</a></font>
+    	{% endif %}
+    </div>
+{% endfor %}
+{% endblock %}
