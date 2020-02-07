@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h1>Predict</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+	<p>
+            {{ form.symptom1.label }}<br>
+            {{ form.symptom1 }}<br>
+            {% for error in form.symptom1.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.symptom2.label }}<br>
+            {{ form.symptom2 }}<br>
+            {% for error in form.symptom2.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.symptom3.label }}<br>
+            {{ form.symptom3 }}<br>
+            {% for error in form.symptom3.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.symptom4.label }}<br>
+            {{ form.symptom4 }}<br>
+            {% for error in form.symptom4.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.symptom5.label }}<br>
+            {{ form.symptom5 }}<br>
+            {% for error in form.symptom5.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

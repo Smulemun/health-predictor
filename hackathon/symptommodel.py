@@ -26,7 +26,7 @@ class SymptomModel():
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM symptoms WHERE symptom = ?", (symptom,))
         row = cursor.fetchone()
-        return (True, row[0]) if row else (False,)
+        return (row[3], row[0])
     
     def get(self, symptom_id):
         cursor = self.connection.cursor()

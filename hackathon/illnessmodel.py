@@ -26,6 +26,11 @@ class IllnessModel():
         row = cursor.fetchone()
         return (True, row[0]) if row else (False,)
     
+    def get(self, illness_id):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM illnesses WHERE id = ?", (int(illness_id),))
+        row = cursor.fetchone()
+        return row[1]     
     
     def get_all(self):
         cursor = self.connection.cursor()
