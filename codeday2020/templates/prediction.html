@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h1>Prediction</h1>
+    <form action="" method="post" novalidate>
+	<p>
+            {% for disease in diseases %}
+                <h6>{{disease[0]}} - {{disease[1]}}</h6>
+            {% endfor %}
+        </p>
+    </form>
+{% endblock %}
